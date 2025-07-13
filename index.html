@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawsome Palace - Dog Grooming & Boarding</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Slate 700 */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b; /* Slate 900 */
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+        }
+        .btn-primary {
+            background-color: #6366f1; /* Indigo 500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* Indigo 600 */
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1; /* Slate 300 */
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            background-color: #f1f5f9; /* Slate 100 */
+            color: #1e293b; /* Slate 900 */
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #6366f1; /* Indigo 500 */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        .message-box {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .message-success {
+            background-color: #d1fae5; /* Green 100 */
+            color: #065f46; /* Green 800 */
+            border: 1px solid #34d399; /* Green 400 */
+        }
+        .message-error {
+            background-color: #fee2e2; /* Red 100 */
+            color: #991b1b; /* Red 800 */
+            border: 1px solid #ef4444; /* Red 400 */
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #6366f1;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white py-6 shadow-lg">
+        <div class="container flex justify-between items-center">
+            <h1 class="text-4xl font-extrabold">Pawsome Palace</h1>
+            <nav>
+                <ul class="flex space-x-6 text-lg font-medium">
+                    <li><a href="#about" class="hover:text-indigo-200 transition duration-300">About Us</a></li>
+                    <li><a href="#services" class="hover:text-indigo-200 transition duration-300">Services</a></li>
+                    <li><a href="#appointment" class="hover:text-indigo-200 transition duration-300">Appointment</a></li>
+                    <li><a href="#contact" class="hover:text-indigo-200 transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-indigo-600 text-white py-20 text-center relative overflow-hidden">
+        <div class="container relative z-10">
+            <h2 class="text-5xl font-extrabold mb-4 leading-tight">Where Every Paw Gets the Royal Treatment!</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Premium grooming, comfortable boarding, and joyful play for your beloved canine companions.
+            </p>
+            <a href="#appointment" class="btn-primary text-xl inline-block px-8 py-4">Book an Appointment</a>
+        </div>
+        <!-- Decorative elements (SVG for visual appeal) -->
+        <svg class="absolute bottom-0 left-0 w-full h-auto z-0 opacity-20" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 320L48 298.7C96 277 192 235 288 202.7C384 171 480 149 576 160C672 171 768 213 864 224C960 235 1056 213 1152 181.3C1248 149 1344 107 1392 85.3L1440 64L1440 320L1392 320C1344 320 1248 320 1152 320C1056 320 960 320 864 320C768 320 672 320 576 320C480 320 384 320 288 320C192 320 96 320 48 320L0 320Z" fill="currentColor"/>
+        </svg>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container">
+            <h3 class="section-heading">About Pawsome Palace</h3>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="text-lg leading-relaxed">
+                    <p class="mb-4">
+                        At Pawsome Palace, we believe every dog deserves to be pampered and loved. Founded by passionate animal lovers, our mission is to provide a safe, fun, and luxurious environment for your furry family members. From a refreshing bath to a cozy overnight stay, we treat each dog with the individual care and attention they deserve.
+                    </p>
+                    <p>
+                        Our experienced team is dedicated to ensuring your dog's happiness and well-being. We use only high-quality, pet-friendly products and maintain a clean, secure facility. Trust us to be your dog's home away from home!
+                    </p>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Happy+Dogs" alt="Happy dogs playing" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-100">
+        <div class="container">
+            <h3 class="section-heading">Our Services</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <img src="https://placehold.co/100x100/6366f1/ffffff?text=🐾" alt="Grooming icon" class="mx-auto mb-4">
+                    <h4 class="text-2xl font-semibold mb-2">Grooming</h4>
+                    <p class="text-gray-600">
+                        Full-service grooming including baths, haircuts, nail trims, and ear cleaning. Your dog will look and feel fantastic!
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <img src="https://placehold.co/100x100/6366f1/ffffff?text=🏠" alt="Boarding icon" class="mx-auto mb-4">
+                    <h4 class="text-2xl font-semibold mb-2">Boarding</h4>
+                    <p class="text-gray-600">
+                        Comfortable and secure overnight stays with plenty of playtime and personalized attention.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <img src="https://placehold.co/100x100/6366f1/ffffff?text=🎾" alt="Daycare icon" class="mx-auto mb-4">
+                    <h4 class="text-2xl font-semibold mb-2">Daycare</h4>
+                    <p class="text-gray-600">
+                        Supervised playtime and socialization in a fun and safe environment during the day.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="py-16 bg-white">
+        <div class="container">
+            <h3 class="section-heading">Book Your Dog's Appointment</h3>
+            <div class="card max-w-2xl mx-auto">
+                <form id="appointmentForm" class="space-y-6">
+                    <div>
+                        <label for="dogName" class="block text-lg font-medium text-gray-700 mb-2">Dog's Name</label>
+                        <input type="text" id="dogName" name="dogName" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="ownerName" class="block text-lg font-medium text-gray-700 mb-2">Your Name</label>
+                        <input type="text" id="ownerName" name="ownerName" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-lg font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="service" class="block text-lg font-medium text-gray-700 mb-2">Desired Service</label>
+                        <select id="service" name="service" required class="form-select">
+                            <option value="">Select a Service</option>
+                            <option value="Grooming">Grooming</option>
+                            <option value="Boarding">Boarding</option>
+                            <option value="Daycare">Daycare</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="preferredDate" class="block text-lg font-medium text-gray-70=" mb-2">Preferred Date</label>
+                        <input type="date" id="preferredDate" name="preferredDate" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="preferredTime" class="block text-lg font-medium text-gray-700 mb-2">Preferred Time</label>
+                        <input type="time" id="preferredTime" name="preferredTime" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="notes" class="block text-lg font-medium text-gray-700 mb-2">Additional Notes (optional)</label>
+                        <textarea id="notes" name="notes" rows="4" class="form-textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">
+                        <span id="submitButtonText">Submit Appointment</span>
+                        <span id="submitSpinner" class="loading-spinner hidden"></span>
+                    </button>
+                </form>
+                <div id="formMessage" class="message-box hidden"></div>
+            </div>
+            <p class="text-sm text-gray-500 mt-8 text-center">
+                <strong class="text-red-500">Note:</strong> This form now saves data to a Firebase Firestore database.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container text-center">
+            <h3 class="section-heading">Contact Us</h3>
+            <p class="text-lg mb-4">Have questions? We'd love to hear from you!</p>
+            <p class="text-xl font-semibold mb-2">Email: info@pawsomepalace.com</p>
+            <p class="text-xl font-semibold mb-6">Phone: (123) 456-7890</p>
+            <p class="text-lg">Visit us at: 123 Bark Avenue, Dogville, USA</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-700 text-white py-8 text-center text-sm">
+        <div class="container">
+            &copy; 2025 Pawsome Palace. All rights reserved.
+        </div>
+    </footer>
+
+    <script type="module">
+        // Firebase SDK imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // User-provided Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDW9Bo4aDQBL3ofJ5AqNiVbH4iB7sA2y7w",
+            authDomain: "timeflow-c5c29.firebaseapp.com",
+            projectId: "timeflow-c5c29",
+            storageBucket: "timeflow-c5c29.firebasestorage.app",
+            messagingSenderId: "448310422112",
+            appId: "1:448310422112:web:46beb7b81a7f987a227105"
+        };
+
+        // Global variables provided by the environment (appId is still useful for data path)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        // __initial_auth_token is no longer directly used for sign-in to avoid conflicts with user's config
+
+        // Initialize Firebase
+        let app;
+        let db;
+        let auth;
+        let userId = 'anonymous'; // Default to anonymous until authenticated
+
+        async function initFirebase() {
+            try {
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Always sign in anonymously when using a user-provided firebaseConfig
+                // This avoids conflicts with the __initial_auth_token which might be for a different project/setup.
+                await signInAnonymously(auth);
+                
+                userId = auth.currentUser?.uid || crypto.randomUUID(); // Get UID or generate random for anonymous
+                console.log("Firebase initialized and authenticated. User ID:", userId);
+            } catch (error) {
+                console.error("Error initializing Firebase or authenticating:", error);
+                document.getElementById('formMessage').className = 'message-box message-error';
+                document.getElementById('formMessage').textContent = 'Error initializing app. Please try again later.';
+                document.getElementById('formMessage').classList.remove('hidden');
+            }
+        }
+
+        document.getElementById('appointmentForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            if (!db || !auth.currentUser) {
+                document.getElementById('formMessage').className = 'message-box message-error';
+                document.getElementById('formMessage').textContent = 'App not ready. Please wait or refresh the page.';
+                document.getElementById('formMessage').classList.remove('hidden');
+                return;
+            }
+
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const submitButtonText = document.getElementById('submitButtonText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const formMessage = document.getElementById('formMessage');
+
+            // Disable button and show loading spinner
+            submitButton.disabled = true;
+            submitButtonText.textContent = 'Submitting...';
+            submitSpinner.classList.remove('hidden');
+            formMessage.classList.add('hidden'); // Hide previous messages
+
+            const now = new Date();
+            const formData = {
+                // Fields mapping to the provided dashboard image structure
+                bookedAt: now.toISOString(), // "2025-07-07T22:00:59.822Z" format
+                bookedBy: auth.currentUser?.uid || 'anonymous_user', // Using authenticated user's UID
+                customerId: crypto.randomUUID(), // Generate a unique ID for this customer booking
+                customerName: document.getElementById('ownerName').value, // From form's "Your Name"
+                date: document.getElementById('preferredDate').value, // "2025-07-07" format
+                notes: document.getElementById('notes').value,
+                service: document.getElementById('service').value, // e.g., "Grooming", "Boarding"
+                status: "pending", // New appointments typically start as "pending"
+                time: document.getElementById('preferredTime').value, // "20:04" format
+
+                // Additional fields from the form that might be useful
+                dogName: document.getElementById('dogName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                appId: appId // Store the application ID
+            };
+
+            console.log('Appointment data to save:', formData);
+
+            try {
+                // Define the Firestore collection path as per the user's provided structure
+                // FIX: Changed the collection path to have an odd number of segments, making 'appointments' a collection.
+                // Assuming 'store' is a document within 'artifacts', and 'appointments' is a subcollection within 'store'.
+                const appointmentsCollectionRef = collection(db, `artifacts/store/public/data/appointments`);
+                
+                // Add the document to Firestore
+                await addDoc(appointmentsCollectionRef, formData);
+
+                formMessage.className = 'message-box message-success';
+                formMessage.textContent = 'Appointment booked successfully! We will contact you soon.';
+                form.reset(); // Clear the form on success
+            } catch (error) {
+                console.error('Error submitting appointment to Firestore:', error);
+                formMessage.className = 'message-box message-error';
+                formMessage.textContent = `Failed to book appointment: ${error.message}. Please try again.`;
+            } finally {
+                // Re-enable button and hide spinner
+                submitButton.disabled = false;
+                submitButtonText.textContent = 'Submit Appointment';
+                submitSpinner.classList.add('hidden');
+                formMessage.classList.remove('hidden');
+            }
+        });
+
+        // Initialize Firebase when the window loads
+        window.onload = initFirebase;
+    </script>
+</body>
+</html>
